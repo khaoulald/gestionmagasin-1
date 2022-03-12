@@ -4,9 +4,9 @@ require_once('connection.php');
 $email = $password = $pwd = '';
 
 $email = $_POST['email'];
-$pwd = $_POST['password'];
+$pwd = $_POST ['password'];
 $password = MD5($pwd);
-$sql = "SELECT * FROM client WHERE email='$email' AND pass='$password'";
+$sql = "SELECT * FROM client WHERE email='$email' AND pass='$pwd'";
 $result = mysqli_query($db, $sql);
 if(mysqli_num_rows($result) > 0)
 {
@@ -20,6 +20,7 @@ if(mysqli_num_rows($result) > 0)
 	
 
 	echo "nice one";
+	header('location:produit.php');
 }
 else
 {

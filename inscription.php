@@ -16,14 +16,13 @@
           <img id="logo" src="images/logo.png"></a>
           <h1>Bonjour, beauté !<strong > Inscrivez-vous.</strong></h1>
           <form action="inscription_code.php" method="POST">
-          <input type ="text" name="email" id="email" placeholder="Adresse e-mail"><br>
-          <input type ="text" name="nom"  id="nom" placeholder="Nom">
-          <input type ="text" name="prenom"  id="prenom" placeholder="Prénom"><br>
-          <input type ="text" name="adresse"  id="adr" placeholder="Adresse"><br>
-          <input type ="text" name="telephone"  id="num" placeholder=" Numéro de tel"><br>
-          <input type ="text" name="password"  id="mdp" placeholder="Mot de passe"><br>
-          <input type ="text" name="password"  id="mdp" placeholder="confirmer mot de passe"><br>
-          <div id="svn"><a><input type="checkbox" id="ho"> Se souvenir de moi</a><br></div>
+          <input type ="text" name="email" id="email" placeholder="Adresse e-mail"required><br>
+          <input type ="text" name="nom"  id="nom" placeholder="Nom"required>
+          <input type ="text" name="prenom"  id="prenom" placeholder="Prénom"required><br>
+          <input type ="text" name="adresse"  id="adr" placeholder="Adresse"required><br>
+          <input type ="text" name="telephone"  id="num" placeholder=" Numéro de tel"required><br>
+          <input type ="text" name="password"  id="mdp" placeholder="Mot de passe"required><br>
+          <div id="svn"><a><input type="checkbox"  id="ho"> Se souvenir de moi</a><br></div>
           <button type="submit" name="submit" id="submit">S'inscrire</button><br>
         </form>
     </div>
