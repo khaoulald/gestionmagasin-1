@@ -50,6 +50,9 @@ li{
     padding-top: 0;
     padding-bottom: 0;
 }
+ form ul a.login{
+    padding: 10px;
+}
 .text{
     padding-top: 100px;
     padding-left: 400px;
@@ -67,6 +70,11 @@ strong{
     padding-left: 130px;
     font-size: 30px;
     font-family: 'Italianno', cursive;
+}
+.meilleurVentes{
+    background-color:#FDBBB4;
+    margin-bottom: 40px;
+    text-align: center;
 }
 .produitsTop{
     display: grid;

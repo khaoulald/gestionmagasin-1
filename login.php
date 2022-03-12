@@ -20,7 +20,7 @@
           <h3>Connexion</h3>
           <form method="POST" action="login_code.php">
           <input type ="text" name="email" id="email" placeholder="Adresse e-mail" required><br>
-          <input type ="text" name="password" id="mdp" placeholder="Mot de passe" required><br>
+          <input type ="password" name="password" id="mdp" placeholder="Mot de passe" required><br>
           <div id="svn"><a><input type="checkbox" id="ho"> Se souvenir de moi</a><br></div>
           <button>Se Connecter</button><br>
           <div id="comm"><a>Vous n'avez pas de compte?</a>
