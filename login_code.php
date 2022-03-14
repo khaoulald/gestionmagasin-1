@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require_once('connection.php');
 $email = $password = $pwd = '';
@@ -18,12 +18,12 @@ if(mysqli_num_rows($result) > 0)
 		$_SESSION['idClient'] = $id;
 		$_SESSION['email'] = $email;
 	
-
-	echo "nice one";
 	header('location:produit.php');
 }
 else
 {
-	echo "Invalid email or password";
+	echo "<div>
+	email ou mot de passe incorrect
+	</div>";
 }
-?>
+?> -->
