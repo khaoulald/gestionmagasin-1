@@ -1,10 +1,10 @@
 <?php
 session_start();
+require_once('connection.php');
 if(isset($_SESSION['email'])){
-  // header('location:produit.php');
+  header('location:produit.php');
 
 }
-require_once('connection.php');
 $email = $password = $pwd = '';
 if(isset($_POST['seConnecter'])){
 $email = $_POST['email'];
@@ -47,7 +47,6 @@ if(isset($message)){
    }
 }
 ?>
-  
     <div class="container-fluid">
         <div class="row">
           <div id="leftmain" class="col-md-8">

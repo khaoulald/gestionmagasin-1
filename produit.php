@@ -1,7 +1,16 @@
 
       <?php include ("header.php");
           session_start();
-
+          
+          include ('connection.php');
+          if(isset($_POST['addToCard'])){
+             
+              $email = $_SESSION['email'];
+          
+          if(!isset($email)){
+              header('location:login.php');
+          }
+          }
           ?>
       <header>
           <div class="text"><h1><strong>Ǝ</strong>LLE</h1>
@@ -33,7 +42,7 @@
                         <div class="card-body">
                           <h5 class="card-title">'.$result["libelle"].'</h5>
                           <h6 class="card-title">'.$result["prix"].'$</h6>
-                          <button "?id='.$result["idProduit"].'" class="btn btn-light">Ajouter au panier</button> 
+                          <button "?id='.$result["idProduit"].'" name="addToCard" class="btn btn-light">Ajouter au panier</button> 
                         </div>
                       </div>
                   </div>
