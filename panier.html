@@ -1,30 +1,3 @@
-<!-- <?php include('connect.php');
-session_start(); 
-include('header.php');
-?>
-<?php if (isset($_POST['addToCard'])){
-
-    if(isset($_SESSION['addToCard'])){
-        
-    }else{
-        $SESSION_array = array(
-            'idProduit' => $_POST['idProduit'],
-            'nom' => $_POST['libelle'],
-            'prix' => $_POST['prix']
-        );
-        $_SESSION['addToCard'] = $SESSION_array;
-    }
-
-
-  $checkProduit = $connect->prepare("SELECT * FROM produit  WHERE idProduit = '$idProduit'");
-  $checkProduit->bindParam($idProduit,$_POST['addToCard']);
-  $checkProduit->execute();
-  foreach($checkProduit as $resultCard){
-
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,15 +9,29 @@ include('header.php');
     <title>Panier</title>
 </head>
 <body>
+  <div>
+    <ul id="firstul" class="list-group list-group-horizontal">
+        <li >LIVRAISON OFFERTE DÈS 40€</li>
+        <li class="li2">RETOURS ET ÉCHANGES PENDANT 60 JOURS</li>
+        <li class="li3">FAQ CORONAVIRUS</li>
+      </ul>
 
-<?php 
-    var_dump($_SESSION['addToCard'])?>
-    <img src="images/nav (2).png">
+</div>
+</div>
+<nav id="navbar" class="navbar">
+    <div class="container-fluid">
+        <img id="logo" src="logo-removebg-preview (1).png">
+
+    
+    </div>
+  </nav>
+  <header>
+
+    <img src="nav (2).png">
     </header>
     <main>
       <section class="bigsection">
-      <section class="firstscc">
-
+      <section class="firstsc">
       <table class="table">
         <thead>
           <tr>
@@ -55,7 +42,7 @@ include('header.php');
           </tr>
         </thead>
         <tbody>
-          <th scope="col"><?php echo $resultCard['image']?></th>
+          <th scope="col">Produit</th>
           <th scope="col">Prix</th>
           <th scope="col">
               
@@ -125,44 +112,4 @@ include('header.php');
 
     
 </body>
-</html> -->
-
-
-
-
-<?php 
-
-class DB{
-    private $serverN = 'localhost';
-    private $userN = 'root';
-    private $passwordN ="";
-    private $database = "gestionmagasin";
-    private $conne;
-
-
-    function _construct() {
-        $this->conne = $this->connectDB();
-    }
-    
-    function connectDB() {
-        $conne = mysqli_connect($this->serverN,$this->userN,$this->password);
-        return $conne;
-    }
-    function runQuery(){
-    $result = mysqli_query($this->conne,$this->query);
-    while($row = mysqli_fetch_array($result)){
-        $result[]= $row;
-    }
-    if(!empty($resultTst)){
-        return $resultTst;
-    
-    }
-    function numRow($query){
-        $result = mysqli_query($this->conne,$query);
-        $rowCount = mysqli_num_rows($result);
-        return$rowCount;
-    }
-}
-
-
-?>
+</html>

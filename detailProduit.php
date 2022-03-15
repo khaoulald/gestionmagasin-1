@@ -35,7 +35,7 @@
                 }
       }
     ?>
-          <form action="panier.php" method="post" class="form">
+          <form action="addToCard.php" method="post" class="form">
             <div class="divFormLeft">
               
               <img src='<?php echo $result["image"]?>'alt="">
@@ -51,7 +51,7 @@
                 <span class="num">01</span>
                 <span class="plus">+</span>
               </div>
-              <a href="#" class="addToCard btn btn-light">Ajouter au panier </a> 
+              <button ?id='.$result["idProduit"].' name="addToCard" class="btn btn-light">Ajouter au panier </button > 
 
             </div>
 

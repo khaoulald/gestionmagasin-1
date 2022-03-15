@@ -4,7 +4,7 @@
           
           include ('connection.php');
           if(isset($_POST['addToCard'])){
-             
+
               $email = $_SESSION['email'];
           
           if(!isset($email)){
@@ -91,7 +91,7 @@
                           <div class="card-body">
                             <h5 class="card-title">'.$result["libelle"].'</h5>
                             <h6 class="card-title">'.$result["prix"].'$</h6>
-                            <a href="?id='.$result["idProduit"].'" name="addToCard" class="btn btn-light">Ajouter au panier </a> 
+                            <button ?id='.$result["idProduit"].' name="addToCard" class="btn btn-light">Ajouter au panier </button > 
                             </div>
                       </div>
                   
@@ -108,16 +108,3 @@
 
 
 
-
-<?php 
-            
-             
-              if(isset($_POST['addToCard'])){ 
-                // $email = $_SESSION['email'];
-            if(!isset($email)){
-              header('location:login.php');
-          }
-              }
-          
-
-?>

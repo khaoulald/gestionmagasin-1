@@ -21,7 +21,7 @@
     </div>
     <nav id="navbar" class="navbar">
         <div class="container-fluid">
-            <img class="logo" src="images/logo.png">
+           <a href="produit.php"><img class="logo" src="images/logo.png"></a> 
 
           <form class="d-flex">
               <ul id="scul">
