@@ -25,7 +25,6 @@
     <main>
       <!-- ----------firstprds----------- -->
       <H1 class="meilleurVentes">Meilleur ventes</H1>        
-      <?php print_r($_SESSION['card']);?>
       <section  style="display:grid;grid-template-columns:repeat(3,1fr);">
       
       <?php
