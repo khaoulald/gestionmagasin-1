@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       }
       else{
           $count = count($_SESSION['card']);
-      $_SESSION["card"][$count]=array('libelle'=>$_POST['libelle'],'prix'=>$_POST['prix'],'quantite'=>45);
+      $_SESSION["card"][$count]=array('libelle'=>$_POST['libelle'],'prix'=>$_POST['prix'],'image'=>$_POST['image']);
       echo'<script>alert("cette ptoduit add en panier");window.location.href="produit.php";</script>';  
       
       }
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
      
     }
     else{
-      $_SESSION["card"][0]=array('libelle'=>$_POST['libelle'],'prix'=>$_POST['prix'],'quantite'=>45);
+      $_SESSION["card"][0]=array('libelle'=>$_POST['libelle'],'prix'=>$_POST['prix'],'image'=>$_POST['image']);
       echo'<script>alert("cette ptoduit add en panier");window.location.href="produit.php";</script>';  
 
     }
@@ -66,59 +66,36 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     </header>
     <main>
       <section class="bigsection">
-      <section class="firstscc">
+      <section class="firstsc">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Produit</th>
-            <th scope="col">Prix</th>
-            <th scope="col-2">Quantité</th>
+            <th scope="col-2">Produit</th>
+            <th scope="col-2">Prix</th>
+
             <th scope="col-2">Total</th>
+            <th scope="col-2"></th>
           </tr>
         </thead>
         <tbody>
           <?php 
+
+          $total = 0;
           if(isset($_SESSION['card'])){
               foreach($_SESSION['card']as $key =>$value){
+                            $total= $total+$value["prix"];
                 echo'
-                    <td scope="col">'.$value["libelle"].' </td>
-                    <td scope="col">'.$value["prix"].'</td>
-                    <td scope="col">
-                        
-                        <div class="wrapper">
-                          <span class="minus">-</span>
-                          <span class="num">01</span>
-                          <span class="plus">+</span>
-                        </div>              
-                        <script>
-               const plus = document.querySelector(".plus"),
-                minus = document.querySelector(".minus"),
-                num = document.querySelector(".num");
-                let a = 1;
-                plus.addEventListener("click", ()=>{
-                  a++;
-                  a = (a < 10) ? "0" + a : a;
-                  num.innerText = a;
-                });
-
-                minus.addEventListener("click", ()=>{
-                  if(a > 1){
-                    a--;
-                    a = (a < 10) ? "0" + a : a;
-                    num.innerText = a;
-                  }
-                });
-
-              </script>
-</td>';
+                <tr>
+                    <td scope="col">'.$value["libelle"].'</td>
+                    <td scope="col">'.$value["prix"].' DH</td> 
+                    <td scope="col">'.$total .' DH</td>
+                    <td scope="col"><a href="#" class="btn btn-primary">Effacer</a></td>';
+                }
           }
-          }
+          
 
           ?>
 
-
-          <th scope="col"></th>
-          <td  scope="col"><a href="#" class="btn btn-primary">Effacer</a></td>
         </tbody>
       </table>
     </section>
@@ -126,18 +103,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       <h3>Carte Total</h3>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <div class="card-title">
-            <h5>Subtotals:</h5>
-            <h5>100$</h5>
-          </div>
-          <hr>
+          
           <div class="card-title">
             <h5>Totals</h5>
-            <h5>200$</h5>
+            <h5><?php echo $total?> DH</h5>
           </div>
-          <hr>
-          <p class="card-text">Shipping & taxes calculated at checkout</p>
-          <a href="#" class="btn btn-primary">Passer a la caisse</a>
+          
+          <a href="command.php" class="btn btn-primary">Passer a la caisse</a>
         </div>
       </div>
       
@@ -158,3 +130,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     
 </body>
 </html>
+<script>
+               const plus = document.querySelector(".plus"),
+                minus = document.querySelector(".minus"),
+                num = document.querySelector(".num");
+                let a = 1;
+                plus.addEventListener("click", ()=>{
+                  a++;
+                  a = (a < 10) ? "0" + a : a;
+                  num.innerText = a;
+                });
+
+                minus.addEventListener("click", ()=>{
+                  if(a > 1){
+                    a--;
+                    a = (a < 10) ? "0" + a : a;
+                    num.innerText = a;
+                  }
+                });
+
+              </script>
