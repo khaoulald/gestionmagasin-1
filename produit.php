@@ -1,6 +1,7 @@
 
       <?php include ("header.php");
           session_start();
+          // session_destroy();
           
           include ('connection.php');
           if(isset($_POST['addToCard'])){
@@ -23,7 +24,8 @@
     </header>
     <main>
       <!-- ----------firstprds----------- -->
-      <H1 class="meilleurVentes">Meilleur ventes</H1>
+      <H1 class="meilleurVentes">Meilleur ventes</H1>        
+      <?php print_r($_SESSION['card']);?>
       <section  style="display:grid;grid-template-columns:repeat(3,1fr);">
       
       <?php
@@ -33,7 +35,7 @@
           $selectProduits->execute();
           foreach($selectProduits as $result){
             echo'
-            <form action="" method="post">
+            <form action="panier.php" method="post">
             <div class="container">
                     <div class="card" style="width: 18rem;">
                     <a href="detailProduit.php?id='.$result["idProduit"].'">
@@ -43,6 +45,8 @@
                           <h5 class="card-title">'.$result["libelle"].'</h5>
                           <h6 class="card-title">'.$result["prix"].'$</h6>
                           <button "?id='.$result["idProduit"].'" name="addToCard" class="btn btn-light">Ajouter au panier</button> 
+                          <input type="hidden" name="libelle" value="'.$result['libelle'].'">
+                          <input type="hidden" name="prix" value="'.$result['prix'].'">
                         </div>
                       </div>
                   </div>

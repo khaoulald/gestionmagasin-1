@@ -129,7 +129,7 @@ include('header.php');
 
 
 
-
+<!-- 
 <?php 
 
 class DB{
@@ -165,4 +165,4 @@ class DB{
 }
 
 
-?>
+?> -->
