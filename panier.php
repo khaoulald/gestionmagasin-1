@@ -1,5 +1,14 @@
 <?php
 session_start();
+if(isset($_POST['passerCommand.php'])){
+
+  $email = $_SESSION['email'];
+
+if(!isset($email)){
+  header('location:login.php');
+}
+}
+
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(isset($_POST["addToCard"])){
@@ -88,8 +97,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 <tr>
                     <td scope="col">'.$value["libelle"].'</td>
                     <td scope="col">'.$value["prix"].' DH</td> 
-                    <td scope="col">'.$total .' DH</td>
-                    <td scope="col"><a href="#" class="btn btn-primary">Effacer</a></td>';
+                    <td scope="col"><button name="remove" class="btn btn-primary">Effacer</button></td>';
                 }
           }
           
@@ -100,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       </table>
     </section>
     <section class="secondsc">
+      <form action="login.php" method="post">
       <h3>Carte Total</h3>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -108,11 +117,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <h5>Totals</h5>
             <h5><?php echo $total?> DH</h5>
           </div>
-          
-          <a href="command.php" class="btn btn-primary">Passer a la caisse</a>
+          <a href="panie.php?delet=<?php echo $result["idProduit"];?>"  type="submit" name="passerCommand" class="btn btn-primary">Passer a la caisse</a>
         </div>
       </div>
-      
+      </form>
     </section>
   </section>
 
@@ -150,3 +158,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 });
 
               </script>
+
+
+<?php 
+include('connect.php');
+
+

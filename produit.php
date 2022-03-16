@@ -1,18 +1,17 @@
 
-      <?php include ("header.php");
+      <?php 
           session_start();
-          // session_destroy(); 
-          
           include ('connection.php');
-          if(isset($_POST['addToCard'])){
 
-              $email = $_SESSION['email'];
-          
-          if(!isset($email)){
-              header('location:login.php');
-          }
-          }
-          ?>
+      if(!isset($email)){
+        include('header.php');
+      }
+      else{
+        include('header2.php');
+      }
+
+
+?>
       <header>
           <div class="text"><h1><strong>Ǝ</strong>LLE</h1>
         <h2>you deserve to feel beautiful</h2></div>
