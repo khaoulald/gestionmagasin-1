@@ -1,7 +1,8 @@
-<?php
+
+<?php include('connect.php');
+
 session_start();
 if(isset($_POST['passerCommand.php'])){
-
   $email = $_SESSION['email'];
 
 if(!isset($email)){
@@ -34,11 +35,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     }
   }
+  if(isset($_POST['remove'])){
+    foreach($_SESSION['card'] as $key => $value){
+      if($value['removeProduit']==$_POST['remove']){
+        unset($_SESSION['card'][$key]);
+        $_SESSION['card']=array_values($_SESSION['card']);
+        echo '<script>alert("cette ptoduit est supprimer");
+        window.location.href="panier.php";
+        </script>';
+      }
+    }
+  }
 }
 
+
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -97,7 +108,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 <tr>
                     <td scope="col">'.$value["libelle"].'</td>
                     <td scope="col">'.$value["prix"].' DH</td> 
-                    <td scope="col"><button name="remove" class="btn btn-primary">Effacer</button></td>';
+                    <td scope="col">
+                    <form action="panier.php" method="post">
+                    <button name="remove" class="btn btn-primary">Effacer</button>
+                    </form>
+                    </td>';
                 }
           }
           
@@ -108,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       </table>
     </section>
     <section class="secondsc">
-      <form action="login.php" method="post">
+      <form action="command.php" method="post">
       <h3>Carte Total</h3>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -117,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <h5>Totals</h5>
             <h5><?php echo $total?> DH</h5>
           </div>
-          <a href="panie.php?delet=<?php echo $result["idProduit"];?>"  type="submit" name="passerCommand" class="btn btn-primary">Passer a la caisse</a>
+          <button type="submit" name="passerCommand" class="btn btn-primary">Passer a la caisse</a>
         </div>
       </div>
       </form>
@@ -160,7 +175,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
               </script>
 
 
-<?php 
-include('connect.php');
+
+
+
 
 

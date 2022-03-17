@@ -1,6 +1,15 @@
 <?php
 session_start();
-include('connect.php');
+include('connection.php');
+if(isset($_POST['passerCommand'])){
+    $emailClient = $_SESSION['email'];
+$select='SELECT * FROM client WHERE email="$email"';
+$result= mysqli_query($db, $select);
+foreach($result as $row){
+}
+}
+
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -14,10 +23,11 @@ include('connect.php');
         <title>Detail Adress</title>
     </head>
     <body>
+        
                     <form>
                 <div class="mb-3">
                     <label for="nom" class="form-label">NOM:</label>
-                    <input type="text" class="form-control" id="nom" name="nom" required>
+                    <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $row['email']?>"required>
                 </div>
                 <div class="mb-3">
                     <label for="prenom" class="form-label">Prenom:</label>
