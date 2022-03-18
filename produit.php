@@ -6,11 +6,6 @@
       if(!isset($email)){
         include('header.php');
       }
-      else{
-        include('header2.php');
-      }
-
-
 ?>
       <header>
           <div class="text"><h1><strong>Ǝ</strong>LLE</h1>
